@@ -1,0 +1,45 @@
+# UNIT1
+def test_range(n):
+    if n in range(1, 1000):
+        print(" %s Потрапляє в діапазон" %str(n))
+    else:
+        print("Число не потрапляє в діапазон.")
+
+
+test_range(15)
+
+# UNIT2
+
+
+def arithmetic(x, y, z):
+    if z == "+":
+        return x + y
+    elif z == "-":
+        return x - y
+    elif z == "*":
+        return x * y
+    elif z == "/":
+        return x / y
+    else:
+        return "Операція неможлива"
+
+
+x = int(input("Введіть перше число : "))
+y = int(input("Введіть друге число : "))
+z = input("Введіть знак (+, -, *, / ) : ")
+
+
+print(arithmetic(x, y, z))
+
+# UNIT3
+
+input_str = input("Введіть данні")
+if input_str == input_str[::-1]:
+    print("Паліндром")
+else:
+    print("Не паліндром")
+
+# UNIT4
+text = str(input("Введіть стрічку"))
+text1 = str(input("Введіть небажані символи"))
+print(text.translate({ord(i): None for i in text1}))
