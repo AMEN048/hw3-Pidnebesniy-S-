@@ -1,45 +1,69 @@
-# UNIT1
-def test_range(n):
-    if n in range(1, 1000):
-        print(" %s Потрапляє в діапазон" %str(n))
+# UNIT1 Напишіть функцію, що перевіряє чи задане число потрапляє в певний діапазон[from, to]. Якщо from не введено,
+# то використати 0. Повернути тип boolean.
+def test_range(start: int, finish: int, diapazone: int) -> bool:
+
+    if start < diapazone < finish:
+        return True
     else:
-        print("Число не потрапляє в діапазон.")
+        return False
 
 
-test_range(15)
+arg_from = int(input("Напишіть число для початку діапазона: "))
+arg_to = int(input("Напишіть число для кінця діапазона: "))
 
-# UNIT2
+if arg_from == "":
+    arg_from = 0
+number = int(input("Напишіть число для перевірки: "))
+print(test_range(arg_from, arg_to, number))
 
 
-def arithmetic(x, y, z):
-    if z == "+":
+# UNIT2 Напишіть функцію arithmetic, що приймає 3 аргумента: перших 2 - числа, третій - операція, яка має бути виконана
+# над ними. Функція має повернути результат виконання операцій + — * / ** % //. В інших випадках повернути операція
+# неможлива. Явно вказати тип даних який приймають параметри. Викристати іменовані аргументи.
+
+
+def arithmetic(x: float, y: float, z: str) -> float:
+    if z == '+':
         return x + y
-    elif z == "-":
+    elif z == '-':
         return x - y
-    elif z == "*":
+    elif z == '*':
         return x * y
-    elif z == "/":
+    elif z == '/':
         return x / y
     else:
-        return "Операція неможлива"
+        print("Операція неможлива")
 
 
-x = int(input("Введіть перше число : "))
-y = int(input("Введіть друге число : "))
-z = input("Введіть знак (+, -, *, / ) : ")
+print("Напишіть завдання")
+x = float(input("Перше число = "))
+y = float(input("Друге число = "))
+operator = str(input("Виберіть операцію('+' '-' '*' '/'): "))
+print(arithmetic(x=x, y=y, z=operator))
+
+# UNIT3 Напишіть ф-ція яка перевіряє чи задана стрічка є паліндромом
 
 
-print(arithmetic(x, y, z))
+def palindrome(tex: str):
+    if tex == str(tex)[::-1]:
+        print("Це паліндром")
+    else:
+        print("Це не паліндром")
 
-# UNIT3
 
-input_str = input("Введіть данні")
-if input_str == input_str[::-1]:
-    print("Паліндром")
-else:
-    print("Не паліндром")
+text = str(input("Напишіть текст для перевірки: "))
+print(palindrome(text))
 
-# UNIT4
-text = str(input("Введіть стрічку"))
-text1 = str(input("Введіть небажані символи"))
-print(text.translate({ord(i): None for i in text1}))
+# UNIT4 Напишіть ф-цію, яка отримує стрічку і перелік символів які треба видалити. Функція повертає очищену стрічку.
+# Перелік символів можна передати через *args та використати конструкцію та цикл for. Перелік небажаних символів не
+# обов'язковим. Стрічку має ввести користувач.
+
+
+def destroy(texxt):
+    texxt = str((input("Введіть небажані символи:")))
+
+    print(texxt.translate({ord(i): None for i in texxt}))
+
+
+sent = str(input("Введіть стрічку: "))
+print(destroy(sent))
